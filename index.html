@@ -4,15 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dipali Kunwar's Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body Styling */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -21,247 +16,230 @@
             background-attachment: fixed;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
-        }
-        header nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-        header nav ul li {
-            margin: 0 10px;
-        }
-        header nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Section Styling */
         section {
-            padding: 40px 20px;
-            text-align: center;
+            scroll-margin-top: 80px; /* Adjust to match the header height */
+            padding-top: 60px; /* Slight padding if needed */
         }
+
+
+        .navbar {
+            padding: 15px;
+        }
+
         #home {
+            padding: 100px 20px;
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 50px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        #home .intro h1 {
-            font-size: 2.5rem;
-            color: #333;
-        }
-        #home .intro button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        #home .intro button:hover {
-            background-color: #555;
-        }
-
-        /* Skills Section */
-        #skills {
-            padding: 40px 20px;
-            background-color: rgba(249, 249, 249, 0.9);
             border-radius: 10px;
         }
 
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+        #skills, #projects, #contact {
+            padding: 60px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
         }
 
-        .skill {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .project-card, .skill {
             transition: transform 0.3s ease;
-        }
-
-        .skill-name {
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .stars {
-            display: flex;
-        }
-
-        .stars span {
-            color: gold;
-            font-size: 1.2rem;
-            margin-left: 2px;
-        }
-
-        /* Hover Effect */
-        .skill:hover {
-            background-color: #444;
-            transform: scale(1.05);
-        }
-
-        /* Projects Section */
-        #projects {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px 20px;
-            border-radius: 10px;
-        }
-
-        .project-card {
-            background-color: #fff;
-            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            margin: 20px;
-            max-width: 400px;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            color: #333;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
         }
 
-        #contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .project-card:hover, .skill:hover {
+            transform: scale(1.05);
         }
 
-        #contact form input, #contact form textarea, #contact form button {
-            width: 80%;
-            max-width: 500px;
-            margin: 10px 0;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        #contact form button {
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #contact form button:hover {
-            background-color: #555;
-        }
-
-        /* Footer */
         footer {
             background-color: #333;
             color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
-            margin-top: 40px;
         }
-
     </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
+
     <!-- Navigation -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://dipalikunwar.github.io/">Dipali Kunwar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Home Section -->
-    <section id="home">
-        <div class="intro">
-            <h1>Hello, I'm Dipali Kunwar</h1>
-            <p>BTech CSE student, aspiring Software Tester and Android Developer.</p>
-            <button onclick="scrollToSection('about')">Learn More</button>
+    <section id="home" class="text-center">
+        <div class="container">
+            <h1 class="display-4">Hello, I'm Dipali Kunwar</h1>
+            <p class="lead">BTech CSE student, aspiring Software Tester and Android Developer.</p>
+            <button class="btn btn-dark mt-3" onclick="scrollToSection('about')">Learn More</button>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Computer Science Engineering student at LPU, currently in my fifth semester with a minor in Software Testing. I have experience in Android Development and enjoy working on automation testing projects using Selenium and Appium.</p>
+    <section id="about" class="text-center py-5">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a Computer Science Engineering student at LPU, currently in my fifth semester with a minor in Software Testing. I have experience in Android Development and enjoy working on automation testing projects using Selenium and Appium.</p>
+        </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <!-- Skills added here as per original layout -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Skills</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code fa-2x mb-3"></i>
+                            <h5 class="card-title">C/C++</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ★ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fab fa-java fa-2x mb-3"></i>
+                            <h5 class="card-title">Java</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ★ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fab fa-python fa-2x mb-3"></i>
+                            <h5 class="card-title">Python</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ☆ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database fa-2x mb-3"></i>
+                            <h5 class="card-title">DBMS</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ☆ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fas fa-check-circle fa-2x mb-3"></i>
+                            <h5 class="card-title">Selenium</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ★ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-2x mb-3"></i>
+                            <h5 class="card-title">Appium</h5>
+                            <p class="card-text">
+                                <span class="stars">★ ★ ★ ☆ ☆</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3 class="project-title">Student Management System</h3>
-            <p>A C++ application that manages student data, developed as part of my internship training.</p>
-        </div>
-        <div class="project-card">
-            <h3 class="project-title">Android Layout App</h3>
-            <p>A sample Android application with a custom layout, showcasing design and functionality.</p>
+        <div class="container">
+            <h2 class="text-center">Projects</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-5 project-card m-3">
+                    <h3>Student Management System</h3>
+                    <p>A C++ application that manages student data, developed as part of my internship training.</p>
+                </div>
+                <div class="col-md-5 project-card m-3">
+                    <h3>Android Layout App</h3>
+                    <p>A sample Android application with a custom layout, showcasing design and functionality.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+        <div class="container">
+            <h2 class="text-center">Contact</h2>
+            <form id="contactForm" class="text-center">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Send Message</button>
+            </form>
+        </div>
     </section>
 
-    <footer>
+    <footer class="mt-5">
         <p>&copy; 2024 Dipali Kunwar. All rights reserved.</p>
     </footer>
 
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // function scrollToSection(sectionId) {
+        //     const section = document.getElementById(sectionId);
+        //     const headerOffset = 80; // Adjust this to match the height of your header
+        //     const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+        //     const offsetPosition = elementPosition - headerOffset;
+
+        //     window.scrollTo({
+        //         top: offsetPosition,
+        //         behavior: 'smooth'
+        //     });
+        // }
+
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            const section = document.getElementById(sectionId);
+            const headerOffset = 100; // Adjust as needed
+            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
 
-        // Simple Form Handling
+
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Thank you for your message!');
