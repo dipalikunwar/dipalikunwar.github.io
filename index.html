@@ -8,46 +8,37 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
-            background-attachment: fixed;
         }
 
         section {
             scroll-margin-top: 80px; /* Adjust to match the header height */
+            height: 100vh; /* Full viewport height */
             padding-top: 60px; /* Slight padding if needed */
-        }
-
-
-        .navbar {
-            padding: 15px;
+            display: flex; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f); /* Background gradient */
         }
 
         #home {
-            padding: 100px 20px;
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
         }
 
-        #skills, #projects, #contact {
-            padding: 60px 20px;
+        #about, #skills, #projects, #contact, #social {
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
         }
 
-        .project-card, .skill {
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .project-card:hover, .skill:hover {
-            transform: scale(1.05);
+        .navbar {
+            padding: 15px;
         }
 
         footer {
@@ -55,6 +46,23 @@
             color: white;
             padding: 15px;
             text-align: center;
+            position: relative; /* To avoid overlap with the last section */
+        }
+
+        .social-icon {
+            color: #000; /* Black color for the icons */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #555; /* Dark gray on hover */
+        }
+
+        .social-icon i {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 2rem; /* Adjust icon size if needed */
         }
     </style>
 </head>
@@ -81,7 +89,7 @@
     <section id="home" class="text-center">
         <div class="container">
             <h1 class="display-4">Hello, I'm Dipali Kunwar</h1>
-            <p class="lead">BTech CSE student, aspiring Software Tester and Android Developer.</p>
+            <p class="lead">BTech CSE student, aspiring Android Developer and Software Tester.</p>
             <button class="btn btn-dark mt-3" onclick="scrollToSection('about')">Learn More</button>
         </div>
     </section>
@@ -143,11 +151,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                     <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
                         <div class="card-body text-center">
-                            <i class="fas fa-check-circle fa-2x mb-3"></i>
-                            <h5 class="card-title">Selenium</h5>
+                            <i class="fab fa-android fa-2x mb-3"></i>
+                            <h5 class="card-title">Android Development</h5>
                             <p class="card-text">
                                 <span class="stars">★ ★ ★ ★ ☆</span>
                             </p>
@@ -157,8 +166,8 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                     <div class="card text-white shadow-lg border-0" style="background: linear-gradient(135deg, #333, #555);">
                         <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt fa-2x mb-3"></i>
-                            <h5 class="card-title">Appium</h5>
+                            <i class="fas fa-bug fa-2x mb-3"></i>
+                            <h5 class="card-title">Software Testing</h5>
                             <p class="card-text">
                                 <span class="stars">★ ★ ★ ☆ ☆</span>
                             </p>
@@ -168,82 +177,92 @@
             </div>
         </div>
     </section>
-    
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="py-5">
         <div class="container">
-            <h2 class="text-center">Projects</h2>
+            <h2 class="text-center mb-5">Projects</h2>
             <div class="row justify-content-center">
-                <div class="col-md-5 project-card m-3">
-                    <h3>Student Management System</h3>
-                    <p>A C++ application that manages student data, developed as part of my internship training.</p>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <!-- <img src="https://via.placeholder.com/300" class="card-img-top" alt="Project 1"> -->
+                        <div class="card-body">
+                            <h5 class="card-title">Student Management System</h5>
+                            <p class="card-text">A C++ application that manages student data, developed as part of my internship training.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-5 project-card m-3">
-                    <h3>Android Layout App</h3>
-                    <p>A sample Android application with a custom layout, showcasing design and functionality.</p>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <!-- <img src="https://via.placeholder.com/300" class="card-img-top" alt="Project 2"> -->
+                        <div class="card-body">
+                            <h5 class="card-title">Android Layout App</h5>
+                            <p class="card-text">A sample Android application with a custom layout, showcasing design and functionality</p>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="py-5">
         <div class="container">
-            <h2 class="text-center">Contact</h2>
-            <form id="contactForm" class="text-center">
+            <h2 class="text-center mb-5">Contact Me</h2>
+            <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" required>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Your Message" rows="5" required></textarea>
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-dark">Send Message</button>
+                <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer class="mt-5">
-        <p>&copy; 2024 Dipali Kunwar. All rights reserved.</p>
+    <!-- Social Section -->
+    <section id="social" class="py-5">
+        <div class="container text-center">
+            <h2>Connect with Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <a class="social-icon" href="https://github.com/dipalikunwar">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="social-icon" href="https://www.linkedin.com/in/dipalikunwar/">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="social-icon" href="https://twitter.com/dipalikunwar">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dipali Kunwar</p>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
+    <!-- Bootstrap and jQuery JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // function scrollToSection(sectionId) {
-        //     const section = document.getElementById(sectionId);
-        //     const headerOffset = 80; // Adjust this to match the height of your header
-        //     const elementPosition = section.getBoundingClientRect().top + window.scrollY;
-        //     const offsetPosition = elementPosition - headerOffset;
-
-        //     window.scrollTo({
-        //         top: offsetPosition,
-        //         behavior: 'smooth'
-        //     });
-        // }
-
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const headerOffset = 100; // Adjust as needed
-            const elementPosition = section.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-
-
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Thank you for your message!');
-        });
-    </script>
 </body>
 </html>
