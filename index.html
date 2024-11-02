@@ -82,6 +82,53 @@
             cursor: pointer;
         }
 
+        /* Skills Section */
+        #skills {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-name {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .stars {
+            display: flex;
+        }
+
+        .stars span {
+            color: gold;
+            font-size: 1.2rem;
+            margin-left: 2px;
+        }
+
+        /* Hover Effect */
+        .skill:hover {
+            background-color: #444;
+            transform: scale(1.05);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+
     </style>
 </head>
 <body>
@@ -116,13 +163,67 @@
     <!-- Skills Section -->
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
-            <li>Programming Languages: C++, Java, Python</li>
-            <li>Automation Testing: Selenium, Appium</li>
-            <li>Web Development: HTML, CSS, JavaScript</li>
-            <li>Android Development</li>
-        </ul>
+        <div class="skills-container">
+            <div class="skill">
+                <span class="skill-name">C/C++</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Java</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Python</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">DBMS</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Selenium</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Appium</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                </div>
+            </div>
+            <div class="skill">
+                <span class="skill-name">HTML/CSS/JavaScript</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span class="skill-name">Kotlin</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+            
+            <div class="skill">
+                <span class="skill-name">Android Development</span>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+            </div>
+
+        </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects">
